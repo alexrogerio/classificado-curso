@@ -19,7 +19,7 @@
 			}else {
 				?>
 			<div class="alert alert-warning">
-				<p>Este usuário já existe. <a href="login.php" class="alert-link">Faça o login agora</a></p>
+				<p>Este usuário já existe. <a href="login.php" class="alert-link alert-primary">Faça o login agora</a></p>
 			</div>
 			<?php
 			}
