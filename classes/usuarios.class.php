@@ -31,7 +31,7 @@ class Usuarios {
 		$sql->execute();
 		if($sql->rowCount() > 0){
 			$dado = $sql->fetch();
-			$_SEESION['cLogin'] = $dado['id'];
+			$_SESSION['cLogin'] = $dado['id'];
 			return true;
 		}else {
 			return false;

@@ -1,34 +1,29 @@
-<?php require 'pages/header.php';  ?>
-<div class="container">
-	<h1>Login</h1>
-	<?php
-	require 'classes/usuarios.class.php';
-	$u = new Usuarios;
-	if(isset($_POST['email']) && !empty($_POST['email'])){
-		$email = addslashes($_POST['email']);
-		$senha = $_POST['senha'];
+<?php require 'pages/header.php'; ?>
 
-		if(!empty($email) && !empty($senha)){
-			if($u->login($email,$senha)){
-				?>
-					<script type="text/javascript">window.location.href="./";</script>
-				<?php
-			}else {
-				?>
-			<div class="alert alert-danger">
-				<p>E-mail e/ou senha incorretos tente novamente</a></p>
-			</div>
-			<?php
-			}
-		}else {
-			?>
-			<div class="alert alert-warning">
-				<p>Preencha todos os campos!!!</p>
-			</div>
-			<?php
-		}
-	}
-	?>
+<div class="container">
+    <h1>Fazer login</h1>
+    <?php
+    require 'classes/usuarios.class.php';
+
+    $u = new Usuarios();
+    if (isset($_POST['email']) && !empty($_POST['email'])) {
+        $email = addslashes($_POST['email']);
+        $senha = $_POST['senha'];
+
+        if($u->login($email, $senha)){
+            ?>
+                <script type="text/javascript">window.location.href="./";</script>
+            <?php
+        }
+        else{
+            ?>
+            <div class="alert alert-danger">
+                Usuário e/ou senha incorretos!
+            </div>
+            <?php
+        }
+    }
+    ?>
 	<form method="POST">
 		<div class="form-group">
 			<label for="email">E-mail:</label>
